@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Harzallah · AI Engineer</title>
+<meta name="description" content="Portfolio of Mohamed Harzallah: AI engineer working on generative AI, LLM agents, medical imaging and data engineering.">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/141645052?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* Email and LinkedIn are set in the CONFIG block in the script at the bottom. */
+
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #57534e;
+    --border: #e7e5e4; --accent: #4f46e5; --accent-soft: #eef2ff; --chip: #f5f5f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+      --border: #292524; --accent: #818cf8; --accent-soft: #1e1b4b; --chip: #292524;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+    --border: #292524; --accent: #818cf8; --accent-soft: #1e1b4b; --chip: #292524;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 85%, transparent); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+  nav .brand { font-weight: 700; color: var(--text); }
+  nav .links { display: flex; gap: 18px; font-size: 14px; align-items: center; }
+  nav .links a { color: var(--muted); }
+  #theme { background: none; border: 1px solid var(--border); color: var(--text); border-radius: 8px;
+    padding: 4px 8px; cursor: pointer; font-size: 14px; }
+
+  header { padding: 72px 0 48px; }
+  .hero { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .hero img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--border); }
+  .hero h1 { font-size: clamp(32px, 5vw, 46px); line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .hero .role { font-size: 19px; color: var(--accent); font-weight: 600; margin: 0 0 12px; }
+  .hero p.lead { color: var(--muted); max-width: 640px; margin: 0 0 20px; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text); font-weight: 500; font-size: 14px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  section { padding: 40px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 26px; margin: 0 0 20px; letter-spacing: -0.01em; }
+  .about { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
+  .about p { margin: 0 0 12px; }
+  .facts { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; font-size: 15px; }
+  .facts dt { color: var(--muted); font-size: 13px; margin-top: 10px; }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 0; font-weight: 500; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .skill { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+  .skill h3 { margin: 0 0 10px; font-size: 15px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 2px 10px; font-size: 12.5px; color: var(--muted); }
+
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .filters button { border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 14px; }
+  .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px;
+    display: flex; flex-direction: column; transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .cat { font: 500 11.5px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); }
+  .card h3 { margin: 6px 0 8px; font-size: 18px; }
+  .card p { margin: 0 0 14px; color: var(--muted); font-size: 14.5px; flex: 1; }
+  .card .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px; }
+  .badge { font-size: 12px; border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; color: var(--muted); }
+  .card.featured { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: linear-gradient(180deg, var(--accent-soft), var(--surface) 55%); }
+
+  .timeline { list-style: none; padding: 0; margin: 0; }
+  .timeline li { padding: 0 0 18px 22px; border-left: 2px solid var(--border); position: relative; }
+  .timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .timeline .when { font-size: 13px; color: var(--muted); }
+  .timeline .what { font-weight: 600; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; text-align: center; }
+
+  @media (max-width: 720px) {
+    .about { grid-template-columns: 1fr; }
+    nav .links a.opt { display: none; }
+    header { padding: 48px 0 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">Mohamed Harzallah</a>
+    <div class="links">
+      <a href="#about" class="opt">About</a>
+      <a href="#skills" class="opt">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education" class="opt">Education</a>
+      <button id="theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <img src="https://avatars.githubusercontent.com/u/141645052?v=4" alt="Mohamed Harzallah">
+    <div>
+      <h1>Mohamed Harzallah</h1>
+      <p class="role">AI Engineer · Generative AI, LLM agents &amp; Data Science</p>
+      <p class="lead">I build AI systems that turn messy documents and data into answers people can use: multi-agent LLM pipelines, RAG over documents and SQL data, and deep learning for medical imaging.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="cv/Mohamed_Harzallah_CV.pdf" target="_blank" rel="noopener">📄 CV</a>
+        <a class="btn" id="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" id="email" href="#">✉️ Email</a>
+        <a class="btn" href="https://github.com/mohamedharzalllah" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About</h2>
+      <p>I'm a computer engineer finishing an M2 in Artificial Intelligence &amp; Data Science at Université Paris-Dauphine (Tunis campus). My work centres on <strong>generative AI and agentic systems</strong>: LLM agents that route questions between document retrieval and structured data, natural-language interfaces over databases, and evaluation that shows whether a system actually works.</p>
+      <p>I currently work on <strong>IRIS Agent</strong> at IRIS IT, a multi-agent LLM document-intelligence platform for health-insurance brokerage. Alongside it, I've built projects in medical imaging, NLP, real-time data pipelines and combinatorial optimisation.</p>
+      <p>I'm open to <strong>AI / GenAI engineering roles</strong> (remote-friendly) and research positions in agentic AI.</p>
+    </div>
+    <dl class="facts">
+      <dt>Focus</dt><dd>GenAI · LLM agents · RAG</dd>
+      <dt>Currently</dt><dd>IRIS Agent @ IRIS IT</dd>
+      <dt>Degree</dt><dd>M2 AI &amp; Data Science, Paris-Dauphine (Dec. 2026)</dd>
+      <dt>Languages</dt><dd>French C1 · English B2</dd>
+      <dt>Based in</dt><dd>Tunis · open to remote</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills" id="skillGrid"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <ul class="timeline">
+      <li><div class="when">Expected December 2026</div><div class="what">M2 Artificial Intelligence &amp; Data Science</div><div>Université Paris-Dauphine, Tunis campus</div></li>
+      <li><div class="when">Engineering degree</div><div class="what">Computer Engineering</div><div>Faculté des Sciences de Tunis</div></li>
+      <li><div class="when">Two years</div><div class="what">Preparatory classes</div><div>Classes préparatoires</div></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Mohamed Harzallah · Built with plain HTML, hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  /* ================= CONFIG: edit your contact details here ================= */
+  const CONFIG = {
+    email: "EMAIL_ADDRESS",
+    linkedin: "LINKEDIN_URL"
+  };
+  /* ========================================================================= */
+
+  const GH = "https://github.com/mohamedharzalllah/";
+
+  const SKILLS = [
+    ["GenAI & LLM agents", ["LangChain", "LangGraph", "RAG", "Gemini API", "Prompt engineering", "LLM-as-judge", "Sentence-BERT"]],
+    ["Machine & deep learning", ["PyTorch", "TensorFlow / Keras", "scikit-learn", "XGBoost · LightGBM · CatBoost", "YOLOv8", "Faster R-CNN", "Contrastive SSL"]],
+    ["Data engineering", ["Apache Spark", "PySpark", "Scala", "Kafka", "Structured Streaming", "DuckDB", "SQL"]],
+    ["Databases", ["MongoDB", "Neo4j", "Redis", "HBase", "SPARQL / Jena", "FAISS", "Chroma"]],
+    ["Cloud & deployment", ["Google Cloud", "BigQuery", "Cloud Storage", "Docker", "FastAPI", "Streamlit"]],
+    ["Optimisation", ["OR-Tools", "CVRP / MDVRP", "K-Means", "Heuristics"]]
+  ];
+
+  const PROJECTS = [
+    { cat: "GenAI & Agents", title: "IRIS Agent", featured: true, private: true,
+      desc: "Multi-agent LLM platform for document management and intelligence in health-insurance brokerage, built at IRIS IT. Subject of my M2 internship report.",
+      tags: ["LLM agents", "Document AI", "Professional"] },
+    { cat: "GenAI & Agents", title: "Telecom support agent", repo: "telecom-agent", featured: true,
+      desc: "LangGraph router that sends each customer question to a RAG branch (FAQ PDFs), a SQL branch (billing and usage tables) or a hybrid branch, with a judge agent and an evaluation script.",
+      tags: ["LangGraph", "Gemini 2.5", "FAISS", "DuckDB", "Streamlit"] },
+    { cat: "GenAI & Agents", title: "NoSQL-LLM", repo: "advanced_database", featured: true,
+      desc: "Ask questions in plain English across 5 NoSQL databases. An LLM writes and validates MongoDB, Cypher, Redis, HBase and SPARQL queries, then compares results side by side.",
+      tags: ["Gemini", "MongoDB", "Neo4j", "Redis", "HBase", "Docker"] },
+    { cat: "GenAI & Agents", title: "CV–Job graph matching", repo: "cv-job-graph-matching",
+      desc: "Bipartite CV/job graph enriched with Sentence-BERT similarity: Louvain communities, Adamic-Adar link prediction and seniority classification. Team of two.",
+      tags: ["NetworkX", "Sentence-BERT", "RandomForest"] },
+    { cat: "GenAI & Agents", title: "Hybrid FD discovery", repo: "hybrid-fd-discovery",
+      desc: "TANE and FastFD implemented from scratch to discover functional dependencies, flag suspicious ones and prepare them for LLM review. Verified against brute force on 8 UCI datasets.",
+      tags: ["Python", "Data quality", "Tests", "CLI"] },
+    { cat: "Medical imaging", title: "Multimodal image + tabular SSL", repo: "Fusion-multimodale-imagerie", featured: true,
+      desc: "Contrastive learning between mammograms and clinical records (after Hager et al., CVPR 2023), with an FT-Transformer encoder, missing-value embeddings and a controlled 7-method comparison.",
+      tags: ["PyTorch", "InfoNCE", "FT-Transformer"] },
+    { cat: "Medical imaging", title: "Breast density, ordinal regression", repo: "Estimation-de-la-densit-mammaire-en-r-gression-ordinale",
+      desc: "BI-RADS density classifier on VinDr-Mammo trained with the ordinal CORN loss vs cross-entropy, evaluated with Quadratic Weighted Kappa. Handles DICOM pitfalls and leakage-free splits.",
+      tags: ["PyTorch", "DICOM", "Ordinal loss", "QWK"] },
+    { cat: "Medical imaging", title: "Chest X-ray pathology detection", repo: "chest-xray-pathology-detection",
+      desc: "Detection of 8 thoracic pathologies on NIH ChestX-ray14 with YOLOv8-L and Faster R-CNN, using CLAHE, small anchors and NMS/WBF box fusion.",
+      tags: ["YOLOv8", "Faster R-CNN", "Kaggle"] },
+    { cat: "Medical imaging", title: "Alzheimer detection", repo: "alzheimer-detection",
+      desc: "Alzheimer classification from 450 handwriting features: PCA + stacking ensemble vs a residual MLP trained with focal loss and L1 feature selection.",
+      tags: ["Stacking", "XGBoost", "TensorFlow", "Focal loss"] },
+    { cat: "NLP", title: "News summarisation", repo: "cnn-dailymail-summarization",
+      desc: "CNN/DailyMail summarisation: TF-IDF extractive vs LSTM seq2seq vs seq2seq with Bahdanau attention, scored with ROUGE-1/2/L. Team of two.",
+      tags: ["TensorFlow", "Seq2seq", "Attention", "ROUGE"] },
+    { cat: "Data engineering", title: "Real-time weather streaming", repo: "data-streaming-project", featured: true,
+      desc: "OpenWeather → Kafka → Spark Structured Streaming with Random Forest prediction and Isolation Forest anomaly detection, shown on a live dashboard. Fully dockerised.",
+      tags: ["Kafka", "PySpark", "Docker", "Streamlit"] },
+    { cat: "Data engineering", title: "Movie recommender on GCP", repo: "GCP_movie_recommendation_project",
+      desc: "End-to-end recommender: BigQuery → GCS ingestion, validation, cold start, training, and a FastAPI + Streamlit serving layer.",
+      tags: ["BigQuery", "GCS", "FastAPI"] },
+    { cat: "Data engineering", title: "Connected components with Spark", repo: "ccf-connected-components-spark",
+      desc: "CCF MapReduce algorithm (Kardes et al., 2014) in Scala and PySpark, RDD vs DataFrame, with benchmarks across graph sizes.",
+      tags: ["Spark", "Scala", "PySpark"] },
+    { cat: "Optimisation", title: "Multi-depot VRP system", repo: "Advanced-Multi-Depot-VRP-Optimization-System",
+      desc: "Delivery optimisation with OR-Tools: clustering, baselines, rolling-horizon re-optimisation and cost / CO₂ scenario analysis, plus an interactive dashboard.",
+      tags: ["OR-Tools", "K-Means", "Dashboard"] }
+  ];
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  document.getElementById("skillGrid").innerHTML = SKILLS.map(([h, items]) =>
+    `<div class="skill"><h3>${esc(h)}</h3><div class="chips">${items.map(i => `<span class="chip">${esc(i)}</span>`).join("")}</div></div>`
+  ).join("");
+
+  const cats = ["Featured", "All", ...new Set(PROJECTS.map(p => p.cat))];
+  let current = "Featured";
+  const filters = document.getElementById("filters");
+  const grid = document.getElementById("grid");
+
+  function render() {
+    filters.innerHTML = cats.map(c => `<button class="${c === current ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+    const list = PROJECTS.filter(p => current === "All" || (current === "Featured" ? p.featured : p.cat === current));
+    grid.innerHTML = list.map(p => `
+      <article class="card${p.featured ? " featured" : ""}">
+        <span class="cat">${esc(p.cat)}</span>
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.desc)}</p>
+        <div class="chips">${p.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+        <div class="foot">
+          ${p.private ? `<span class="badge">Private code · professional</span>` : `<a href="${GH + p.repo}" target="_blank" rel="noopener">View on GitHub →</a>`}
+        </div>
+      </article>`).join("");
+  }
+  filters.addEventListener("click", e => { const c = e.target.dataset.c; if (c) { current = c; render(); } });
+  render();
+
+  // Contact links
+  const em = document.getElementById("email"), li = document.getElementById("linkedin");
+  if (CONFIG.email.includes("@")) em.href = "mailto:" + CONFIG.email; else em.style.display = "none";
+  if (CONFIG.linkedin.startsWith("http")) li.href = CONFIG.linkedin; else li.style.display = "none";
+
+  // Theme toggle
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById("theme").onclick = () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  };
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
